@@ -1,0 +1,28 @@
+name:                projeto-json
+version:             0.1.0.0
+github:              "seuusuario/projeto-json"
+license:             BSD-3-Clause
+author:              "Seu Nome"
+maintainer:          "seuemail@email.com"
+extra-source-files:  ["README.md"]
+
+# Mínimo necessário para Stack + GHC
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - SimpleJSON
+  dependencies:
+    - base >= 4.7 && < 5
+
+executables:
+  projeto-json-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -Wall
+    dependencies:
+      - projeto-json
+      - base >= 4.7 && < 5

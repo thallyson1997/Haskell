@@ -1,0 +1,47 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.38.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           projeto-json
+version:        0.1.0.0
+homepage:       https://github.com/seuusuario/projeto-json#readme
+bug-reports:    https://github.com/seuusuario/projeto-json/issues
+author:         Seu Nome
+maintainer:     seuemail@email.com
+license:        BSD-3-Clause
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/seuusuario/projeto-json
+
+library
+  exposed-modules:
+      SimpleJSON
+  other-modules:
+      Paths_projeto_json
+  autogen-modules:
+      Paths_projeto_json
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable projeto-json-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_projeto_json
+  autogen-modules:
+      Paths_projeto_json
+  hs-source-dirs:
+      app
+  ghc-options: -Wall
+  build-depends:
+      base >=4.7 && <5
+    , projeto-json
+  default-language: Haskell2010
