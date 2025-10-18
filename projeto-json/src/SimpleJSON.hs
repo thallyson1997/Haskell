@@ -1,4 +1,3 @@
--- src/SimpleJSON.hs
 module SimpleJSON
   ( JValue(..)
   , getString
@@ -11,6 +10,9 @@ module SimpleJSON
   , putJValue
   ) where
 
+import Data.List (intercalate)
+import Data.Char (ord)
+
 -- Tipo algébrico que representa valores JSON
 data JValue
   = JString String
@@ -21,7 +23,7 @@ data JValue
   | JArray [JValue]
   deriving (Eq, Ord, Show)
 
--- Funções acessoras (ainda sem corpo — vamos preencher depois)
+-- Funções acessoras seguras (safe accessors)
 getString :: JValue -> Maybe String
 getString (JString s) = Just s
 getString _           = Nothing
@@ -46,16 +48,47 @@ isNull :: JValue -> Bool
 isNull JNull = True
 isNull _     = False
 
--- Serialização: converter para String (ainda simples)
+-- Função pura: converte um JValue em JSON válido
 renderJValue :: JValue -> String
-renderJValue (JString s) = show s
+renderJValue (JString s) = "\"" ++ escapeString s ++ "\""
 renderJValue (JNumber n) = show n
 renderJValue (JBool True)  = "true"
 renderJValue (JBool False) = "false"
 renderJValue JNull = "null"
-renderJValue (JObject o) = "{" ++ show o ++ "}"
-renderJValue (JArray a) = "[" ++ show a ++ "]"
+renderJValue (JArray xs) =
+  "[" ++ intercalate ", " (map renderJValue xs) ++ "]"
+renderJValue (JObject kvs) =
+  "{" ++ intercalate ", " (map renderPair kvs) ++ "}"
+  where
+    renderPair (k, v) =
+      renderJValue (JString k) ++ ": " ++ renderJValue v
 
--- Função impura (de IO)
+-- Função auxiliar (não exportar)
+escapeString :: String -> String
+escapeString = concatMap escapeChar
+  where
+    escapeChar '"'  = "\\\""
+    escapeChar '\\' = "\\\\"
+    escapeChar '\b' = "\\b"
+    escapeChar '\f' = "\\f"
+    escapeChar '\n' = "\\n"
+    escapeChar '\r' = "\\r"
+    escapeChar '\t' = "\\t"
+    escapeChar c
+      | ord c < 0x20 = "\\u" ++ padLeft 4 '0' (toHex (ord c))
+      | otherwise    = [c]
+
+    padLeft n ch s = replicate (n - length s) ch ++ s
+
+    toHex :: Int -> String
+    toHex n
+      | n == 0    = "0"
+      | otherwise = reverse (go n)
+      where
+        hexDigits = "0123456789abcdef"
+        go 0 = ""
+        go x = (hexDigits !! (x `mod` 16)) : go (x `div` 16)
+
+-- Função impura: imprime um valor JSON no terminal
 putJValue :: JValue -> IO ()
 putJValue v = putStrLn (renderJValue v)
