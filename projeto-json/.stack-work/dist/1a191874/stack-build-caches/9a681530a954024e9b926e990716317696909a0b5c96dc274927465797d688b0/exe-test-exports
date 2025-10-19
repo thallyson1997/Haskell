@@ -1,14 +1,14 @@
 ? C:\Users\thall\AppData\Local\Programs\stack\x86_64-windows\ghc-9.10.3\lib\x86_64-windows-ghc-9.10.3\rts-1.0.2\include\ghcversion.h
 : hash: 7038bb968ecc358729edd5d1e72a638409aaf5ea6ab13ce6ec7f253daa3b6529
-C:\Users\thall\projetos\Haskell\projeto-json\.stack-work\dist\1a191874\build\projeto-json-exe\autogen\Paths_projeto_json.hs:
-  hash: ea2a85ebc08944207d0dab72aa96286d2b170ca743a0f68769ce100283458191
-C:\Users\thall\projetos\Haskell\projeto-json\.stack-work\dist\1a191874\build\projeto-json-exe\autogen\cabal_macros.h:
-  hash: 03fdf9009ef296863f3fcfbf16b1ecc7b8265e8a1c4b87743934ae0077150990
+C:\Users\thall\projetos\Haskell\projeto-json\.stack-work\dist\1a191874\build\test-exports\autogen\Paths_projeto_json.hs:
+  hash: 0e0ac143711898a9e0fb87df2391bc1dd18553235d1f5bca9c69f8359c89431b
 C:\Users\thall\projetos\Haskell\projeto-json\README.md:
   hash: 60b91af287f9d052d094d85831fbaf04e8af44a5cd84b80b8a70798004e1c256
 C:\Users\thall\projetos\Haskell\projeto-json\app\Main.hs:
   hash: d11de8076561b4d4c270e0c6d4a8e1f3d13f09617c7755958fb0c2497777331a
+C:\Users\thall\projetos\Haskell\projeto-json\app\TestExports.hs:
+  hash: 3fe55846373e11ba46030a0ade72e10c7bc8a93edc09cccfe4c1b51965b33a34
 C:\Users\thall\projetos\Haskell\projeto-json\package.yaml:
-  hash: 58458d11ccd8d06223405d501f7e47d333b9f08bcd15b036fbb508b081b96747
+  hash: 121f741cb9a349b8edf91f9cd0bd62865fac52b90c9f633983b0cda1da1b8c38
 C:\Users\thall\projetos\Haskell\projeto-json\projeto-json.cabal:
-  hash: 502a63802c3e21087a507cf53d94c51607d1db359668218c6b577a1d1d746df4
+  hash: d5d1e63264fe0de83fcf843861708d8a1fa037eb9ee68d75f65dd671c5b24aab
