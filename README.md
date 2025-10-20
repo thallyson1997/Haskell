@@ -197,11 +197,4 @@ projeto-json/
 ## 📄 Licença
 
 Este projeto está sob a licença BSD-3-Clause.
-
-## 👨‍💻 Autor
-
-**Thallyson** - [GitHub](https://github.com/thallyson1997)
-
 ---
-
-💡 **Dica**: Este projeto é ideal para aprender manipulação de tipos algébricos e geração de JSON em Haskell!
