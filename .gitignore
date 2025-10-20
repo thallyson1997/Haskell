@@ -1,0 +1,33 @@
+# .gitignore para projetos Haskell (Stack / GHC)
+
+# Stack build artifacts
+.stack-work/
+
+# GHC build artifacts
+*.hi
+*.o
+*.prof
+*.eventlog
+
+# Cabal / Stack build directories
+dist/
+dist-newstyle/
+
+# HIE / ghcide / haskell-language-server
+.hie/
+/.cache/
+
+# Editor files
+.vscode/
+*.swp
+*~
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project local files
+cabal.project.local
+
+# Do NOT ignore stack.yaml or stack.yaml.lock (keep for reproducibility)
