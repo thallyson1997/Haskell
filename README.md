@@ -1,176 +1,98 @@
-# 🎯 Projetos Haskell# 🎯 Projetos Haskell
+# 🎯 Projetos Haskell
+
+## 👥 Componentes do Grupo
+
+**Thallyson Gabriel Gabriel Martins Correia Fontenele**  
+Matrícula: 2022024639
+
+**Edna Cristina Durans Santos**  
+Matrícula: 2020050943
+
+**Gabriela Florêncio da Silva**  
+Matrícula: 20240065491
+
+---
+
+Este repositório contém diversos projetos e estudos em Haskell.
+
+## 📋 Projetos Disponíveis
 
 
 
-Este repositório contém diversos projetos e estudos em Haskell.Este repositório contém diversos projetos e estudos em Haskell.
+### 🔧 projeto-json
+Uma biblioteca Haskell simples para manipulação e geração de JSON válido.
 
+#### Características:
+- ✅ **Geração de JSON válido** com escape correto de strings
+- ✅ **Suporte completo** a todos os tipos JSON (string, number, boolean, null, array, object)
+- ✅ **Escape automático** de caracteres especiais e de controle
+- ✅ **Formatação correta** de arrays e objetos aninhados
+- ✅ **API simples** e type-safe
 
+## 📦 Como usar
 
-## 📋 Projetos Disponíveis## 📋 Projetos Disponíveis
+### Pré-requisitos
+- [Stack](https://docs.haskellstack.org/en/stable/README/) instalado
+- GHC compatível (testado com GHC 9.10.3)
 
+### Instalação e execução
 
+1. **Clone o repositório:**
+```bash
+git clone https://github.com/thallyson1997/Haskell.git
+cd Haskell
+```
 
-### 🔧 projeto-json### 🔧 projeto-json
-
-Uma biblioteca Haskell simples para manipulação e geração de JSON válido.Uma biblioteca Haskell simples para manipulação e geração de JSON válido.
-
-
-
-#### Características:#### Características:
-
-- ✅ **Geração de JSON válido** com escape correto de strings- ✅ **Geração de JSON válido** com escape correto de strings
-
-- ✅ **Suporte completo** a todos os tipos JSON (string, number, boolean, null, array, object)- ✅ **Suporte completo** a todos os tipos JSON (string, number, boolean, null, array, object)
-
-- ✅ **Escape automático** de caracteres especiais e de controle- ✅ **Escape automático** de caracteres especiais e de controle
-
-- ✅ **Formatação correta** de arrays e objetos aninhados- ✅ **Formatação correta** de arrays e objetos aninhados
-
-- ✅ **API simples** e type-safe- ✅ **API simples** e type-safe
-
-
-
-## 📦 Como usar## 📦 Como usar
-
-
-
-### Pré-requisitos### Pré-requisitos
-
-- [Stack](https://docs.haskellstack.org/en/stable/README/) instalado- [Stack](https://docs.haskellstack.org/en/stable/README/) instalado
-
-- GHC compatível (testado com GHC 9.10.3)- GHC compatível (testado com GHC 9.10.3)
-
-
-
-### Instalação e execução### Instalação e execução
-
-
-
-1. **Clone o repositório:**1. **Clone o repositório:**
-
-```bash```bash
-
-git clone https://github.com/thallyson1997/Haskell.gitgit clone https://github.com/thallyson1997/Haskell.git
-
-cd Haskellcd Haskell
-
-``````
-
-
-
-2. **Para o projeto JSON:**2. **Para o projeto JSON:**
-
-```bash```bash
-
-cd projeto-jsoncd projeto-json
-
+2. **Para o projeto JSON:**
+```bash
+cd projeto-json
 stack build
-
-stack exec projeto-json-exe2. **Compile o projeto:**
-
-``````bash
-
-stack build
-
-## 📋 Exemplo de Uso (projeto-json)```
-
-
-
-```haskell3. **Execute os exemplos:**
-
-import SimpleJSON```bash
-
 stack exec projeto-json-exe
+```
 
-main :: IO ()```
+## 🎯 Uso da Biblioteca
 
-main = do
+### Importando
+```haskell
+import SimpleJSON
+```
 
-  let usuario = JObject [## 🎯 Uso da Biblioteca
-
-        ("nome", JString "Maria"),
-
-        ("idade", JNumber 25),### Importando
-
-        ("ativo", JBool True),```haskell
-
-        ("tags", JArray [JString "premium", JString "verificado"])import SimpleJSON
-
-      ]```
-
-  
-
-  putJValue usuario### Tipos de Dados
-
-  -- Resultado: {"nome": "Maria", "idade": 25.0, "ativo": true, "tags": ["premium", "verificado"]}```haskell
-
-```data JValue
-
+### Tipos de Dados
+```haskell
+data JValue
   = JString String
-
-### Funções Principais  | JNumber Double
-
-- `renderJValue :: JValue -> String` - Converte para JSON válido  | JBool Bool
-
-- `putJValue :: JValue -> IO ()` - Imprime JSON  | JNull
-
-- `getString`, `getNumber`, `getBool` - Accessors seguros  | JObject [(String, JValue)]
-
+  | JNumber Double
+  | JBool Bool
+  | JNull
+  | JObject [(String, JValue)]
   | JArray [JValue]
+```
 
-## 📁 Estrutura do Repositório```
+### Exemplos Básicos
 
+#### Criando valores JSON:
+```haskell
+-- String
+let nome = JString "João"
 
+-- Número
+let idade = JNumber 30
 
-```### Exemplos Básicos
-
-Haskell/
-
-├── projeto-json/          # Biblioteca JSON#### Criando valores JSON:
-
-│   ├── src/SimpleJSON.hs```haskell
-
-│   ├── app/Main.hs-- String
-
-│   ├── package.yamllet nome = JString "João"
-
-│   └── README.md         # Documentação detalhada
-
-└── README.md             # Este arquivo-- Número
-
-```let idade = JNumber 30
-
-
-
-## 🤝 Contribuindo-- Boolean
-
+-- Boolean
 let ativo = JBool True
 
-1. Faça um fork do projeto
+-- Null
+let vazio = JNull
 
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)-- Null
-
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)let vazio = JNull
-
-4. Push para a branch (`git push origin feature/nova-feature`)
-
-5. Abra um Pull Request-- Array
-
+-- Array
 let scores = JArray [JNumber 85, JNumber 92, JNumber 78]
 
-## 👨‍💻 Autor
-
 -- Objeto
-
-**Thallyson** - [GitHub](https://github.com/thallyson1997)let pessoa = JObject [
-
+let pessoa = JObject [
   ("nome", JString "Maria"),
-
----  ("idade", JNumber 25),
-
+  ("idade", JNumber 25),
   ("ativo", JBool True)
-
-💡 **Dica**: Para documentação detalhada de cada projeto, acesse a pasta específica!]
+]
 ```
 
 #### Gerando JSON:
